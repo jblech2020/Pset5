@@ -25,7 +25,7 @@ public class ProblemSet5 {
       * SO I CAN TEST
       */
 
-      System.out.println(ps.triplets("")); //Excercise 6
+      System.out.println(ps.triplets("astsssthreoooasd")); //Excercise 6
       // System.out.println(ps.addMe("12s34jgfhs938")); //Excercise 7
       // System.out.println(ps.sequence("hello")); //Excercise 8 - NOT DONE
       // System.out.println(ps.intertwine("How's", "Life")); //Excercise 9
@@ -98,8 +98,26 @@ public class ProblemSet5 {
      */
 
     public int triplets(String text) {
+      //null check
+      if (text.equals(null)){
+          return -1;
+      }
 
-      return 0;
+      //Initializing variables
+      int count = 0;
+
+      //Meat of the excercise
+      for (int i = 2; i < text.length(); i++){
+        char one = text.charAt(i-2);
+        char two = text.charAt(i-1);
+        char three = text.charAt(i);
+
+        if (one == two && two == three){
+          count++;
+        }
+      }
+
+      return count;
     }
 
     /*
@@ -117,7 +135,7 @@ public class ProblemSet5 {
       int sum = 0;
       int digitsOnly = 0;
 
-      //Adding on characters of each string one by one
+      //Computing the sum by adding one digit character at a time
       for (int i = 0; i < text.length(); i++){
         if (Character.isDigit(text.charAt(i))){
           digitsOnly += Integer.valueOf(text.substring(i, i+1));
