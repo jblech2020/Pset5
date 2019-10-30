@@ -25,7 +25,9 @@ public class ProblemSet5 {
       * SO I CAN TEST
       */
 
-      System.out.println(ps.triplets("astsssthreoooasd")); //Excercise 6
+      // System.out.println(ps.countMe("I'm very happy", 'e')); //Excercise 4
+      System.out.println(ps.countMe("I'm very happy", 'e')); //Excercise 5 - Doesn't fully work
+      // System.out.println(ps.triplets("astsssthreoooasd")); //Excercise 6
       // System.out.println(ps.addMe("12s34jgfhs938")); //Excercise 7
       // System.out.println(ps.sequence("hello")); //Excercise 8 - NOT DONE
       // System.out.println(ps.intertwine("How's", "Life")); //Excercise 9
@@ -87,8 +89,30 @@ public class ProblemSet5 {
      */
 
     public int countMe(String text, char suffix) {
+      //null check
+      if (text.equals(null) || !Character.isAlphabetic(suffix)){
+          return -1;
+      }
 
-      return 0;
+      //Initializing variables
+      int count = 0;
+      String subString = "";
+
+      //Meat of the excercise
+      for (int i = 0; i < text.length(); i++){
+        //Identifies each individual word in the string
+        if (!Character.isSpaceChar(text.charAt(i))){
+          subString += text.substring(i, i+1);
+        }
+
+        //Identifies whether or not the word ends with the suffix
+        if (subString.endsWith(Character.toString(suffix))){
+          count++;
+          subString = "";
+        }
+      }
+
+      return count;
     }
 
     /*
