@@ -25,7 +25,9 @@ public class ProblemSet5 {
       * SO I CAN TEST
       */
 
-      System.out.println(ps.sequence("hello")); //Excercise 8
+      System.out.println(ps.triplets("")); //Excercise 6
+      // System.out.println(ps.addMe("12s34jgfhs938")); //Excercise 7
+      // System.out.println(ps.sequence("hello")); //Excercise 8 - NOT DONE
       // System.out.println(ps.intertwine("How's", "Life")); //Excercise 9
       // System.out.println(ps.isPalindrome("racecar")); //Excercise 10
 
@@ -107,8 +109,22 @@ public class ProblemSet5 {
      */
 
     public long addMe(String text) {
+      //null check
+      if (text.equals(null)){
+        return -1;
+      }
+      //Initializing variables
+      int sum = 0;
+      int digitsOnly = 0;
 
-      return 0;
+      //Adding on characters of each string one by one
+      for (int i = 0; i < text.length(); i++){
+        if (Character.isDigit(text.charAt(i))){
+          digitsOnly += Integer.valueOf(text.substring(i, i+1));
+        }
+      }
+
+      return digitsOnly;
     }
 
     /*
@@ -118,6 +134,18 @@ public class ProblemSet5 {
      */
 
     public long sequence(String text) {
+      // //null check
+      // if (text.equals(null)){
+      //   return -1;
+      // }
+      //
+      //
+      //
+      // if (a.length() >= b.length()){
+      //   lengthTest = a.length();
+      // } else if (a.length() < b.length()){
+      //   lengthTest = b.length();
+      // }
 
       return 0;
     }
