@@ -25,7 +25,8 @@ public class ProblemSet5 {
       * SO I CAN TEST
       */
 
-      System.out.println(ps.intertwine("abcde", "fghij")); //Excercise 9
+      System.out.println(ps.sequence("hello")); //Excercise 8
+      // System.out.println(ps.intertwine("How's", "Life")); //Excercise 9
       // System.out.println(ps.isPalindrome("racecar")); //Excercise 10
 
     }
@@ -135,7 +136,7 @@ public class ProblemSet5 {
       }
       //Initializing variables
       String inter = "";
-      int lengthTest;
+      int lengthTest = 0;
 
       //Identify what length to use for the for loop
       if (a.length() >= b.length()){
@@ -145,8 +146,8 @@ public class ProblemSet5 {
       }
 
       //Adding on characters of each string one by one
-      for (int i = 0; i<lengthTest; i++){
-        inter = a.substring(i, i+1) + b.substring(i, i+1);
+      for (int i = 0; i < lengthTest; i++){
+        inter += a.substring(i, i+1) + b.substring(i, i+1);
       }
 
       return inter;
@@ -170,7 +171,8 @@ public class ProblemSet5 {
 
       //This code gets rid of spaces
       for (int i = 0; i<originPal.length(); i++){
-        if (originPal.isSpaceChar(originPal.charAt(i))){
+        // char character = originPal.charAt(i);
+        if (Character.isSpaceChar(originPal.charAt(i))){
           originPal = originPal.substring(0, i) + originPal.substring(i+1, originPal.length());
         }
       }
