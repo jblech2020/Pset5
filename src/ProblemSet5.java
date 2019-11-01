@@ -25,8 +25,8 @@ public class ProblemSet5 {
       * SO I CAN TEST
       */
 
-      // System.out.println(ps.countMe("I'm very happy", 'e')); //Excercise 4
-      System.out.println(ps.countMe("I'm very happy", 'e')); //Excercise 5 - Doesn't fully work
+      System.out.println(ps.("I'm very happy", 'e')); //Excercise 4
+      // System.out.println(ps.countMe("I'm the happiest sham himself", 'm')); //Excercise 5
       // System.out.println(ps.triplets("astsssthreoooasd")); //Excercise 6
       // System.out.println(ps.addMe("12s34jgfhs938")); //Excercise 7
       // System.out.println(ps.sequence("hello")); //Excercise 8 - NOT DONE
@@ -106,7 +106,7 @@ public class ProblemSet5 {
         }
 
         //Identifies whether or not the word ends with the suffix
-        if (subString.endsWith(Character.toString(suffix))){
+        if (subString.endsWith(Character.toString(suffix)) && Character.isSpaceChar(text.charAt(i+1))){
           count++;
           subString = "";
         }
