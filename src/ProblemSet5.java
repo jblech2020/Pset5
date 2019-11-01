@@ -25,8 +25,9 @@ public class ProblemSet5 {
       * SO I CAN TEST
       */
 
+      // System.out.println(ps.middleMan("afjgnafoh")); //Excercise 3
       // System.out.println(ps.isCentered("afjgnafoh", "gna")); //Excercise 4
-      // System.out.println(ps.countMe("I'm the happiest sham himself", 'm')); //Excercise 5
+      // System.out.println(ps.countMe("I'm the happiest sham himself", 'm')); //Excercise 5 - Still not done
       // System.out.println(ps.triplets("astsssthreoooasd")); //Excercise 6
       // System.out.println(ps.addMe("12s34jgfhs938")); //Excercise 7
       // System.out.println(ps.sequence("hello")); //Excercise 8 - NOT DONE
@@ -66,8 +67,14 @@ public class ProblemSet5 {
      */
 
     public String middleMan(String text) {
-
-      return "";
+      //test conditions
+      if (text != null && text.length() % 2 == 1) {
+        //Variables with calculation
+        double midpoint = text.length() / 2;
+        String midText = text.substring((int)(midpoint - 0.5), (int)(midpoint + 2.5));
+        return midText;
+      }
+      return text;
     }
 
     /*
@@ -80,9 +87,7 @@ public class ProblemSet5 {
     public boolean isCentered(String text, String target) {
         //test conditions
         if (text != null && text.length() % 2 == 1 && target != null && target.length() == 3) {
-          //initializing variables
-          double midpoint = text.length() / 2;
-          String middle = text.substring((int)(midpoint - 0.5), (int)(midpoint + 2.5));
+          String middle = middleMan(text);
           if (middle.equals(target)) {
               return true;
           }
