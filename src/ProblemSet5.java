@@ -25,7 +25,7 @@ public class ProblemSet5 {
       * SO I CAN TEST
       */
 
-      System.out.println(ps.("I'm very happy", 'e')); //Excercise 4
+      // System.out.println(ps.isCentered("afjgnafoh", "gna")); //Excercise 4
       // System.out.println(ps.countMe("I'm the happiest sham himself", 'm')); //Excercise 5
       // System.out.println(ps.triplets("astsssthreoooasd")); //Excercise 6
       // System.out.println(ps.addMe("12s34jgfhs938")); //Excercise 7
@@ -78,8 +78,16 @@ public class ProblemSet5 {
      */
 
     public boolean isCentered(String text, String target) {
-
-      return false;
+        //test conditions
+        if (text != null && text.length() % 2 == 1 && target != null && target.length() == 3) {
+          //initializing variables
+          double midpoint = text.length() / 2;
+          String middle = text.substring((int)(midpoint - 0.5), (int)(midpoint + 2.5));
+          if (middle.equals(target)) {
+              return true;
+          }
+        }
+        return false;
     }
 
     /*
