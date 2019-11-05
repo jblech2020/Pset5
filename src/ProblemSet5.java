@@ -29,7 +29,7 @@ public class ProblemSet5 {
       // System.out.println(ps.endsMeet("I love you", 3)); //Excercise 2
       // System.out.println(ps.middleMan("afjgnafoh")); //Excercise 3
       // System.out.println(ps.isCentered("afjgnafoh", "gna")); //Excercise 4
-      System.out.println(ps.countMe("I'm the happiest sham himself", 'm')); //Excercise 5 - Still not done
+      // System.out.println(ps.countMe("I'm the happiest sham himselfm", 'm')); //Excercise 5
       // System.out.println(ps.triplets("astsssthreoooasd")); //Excercise 6
       // System.out.println(ps.addMe("12s34jgfhs938")); //Excercise 7
       // System.out.println(ps.sequence("hello")); //Excercise 8 - NOT DONE
@@ -130,8 +130,8 @@ public class ProblemSet5 {
       int count = 0;
       String subString = "";
 
-      //Meat of the excercise
-      for (int i = 0; i < text.length(); i++){
+      //For loop to cycle through the text string's characters
+      for (int i = 0; i < text.length()-1; i++){
         //Identifies each individual word in the string
         if (!Character.isSpaceChar(text.charAt(i))){
           subString += text.substring(i, i+1);
@@ -142,6 +142,11 @@ public class ProblemSet5 {
           count++;
           subString = "";
         }
+      }
+
+      //Test case for last character (since there is no space after it)
+      if (text.substring(text.length()-1, text.length()).equals(Character.toString(suffix))){
+        count++;
       }
 
       return count;
