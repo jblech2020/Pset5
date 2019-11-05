@@ -25,14 +25,19 @@ public class ProblemSet5 {
       * TEST CASES
       */
 
-      // System.out.println(ps.surroundMe("I love you", "Hell")); //Excercise 1
+      //Excercise 1
+      System.out.println(ps.surroundMe("cde", "abfg")); //abcdefg (GOOD)
+      System.out.println(ps.surroundMe(null, "####")); //null (GOOD)
+      System.out.println(ps.surroundMe("abc", null)); //abc (GOOD)
+      System.out.println(ps.surroundMe("abc", "123")); //abc (GOOD)
+
       // System.out.println(ps.endsMeet("I love you", 3)); //Excercise 2
       // System.out.println(ps.middleMan("afjgnafoh")); //Excercise 3
       // System.out.println(ps.isCentered("afjgnafoh", "gna")); //Excercise 4
       // System.out.println(ps.countMe("I'm the happiest sham himselfm", 'm')); //Excercise 5
       // System.out.println(ps.triplets("astsssthreoooasd")); //Excercise 6
       // System.out.println(ps.addMe("12s34jgfhs938")); //Excercise 7
-      // System.out.println(ps.sequence("hello")); //Excercise 8 - NOT DONE
+      // System.out.println(ps.sequence("aaaonetohjanjkkjjjgojbnsooooo")); //Excercise 8
       // System.out.println(ps.intertwine("How's", "Life")); //Excercise 9
       // System.out.println(ps.isPalindrome("racecar")); //Excercise 10
 
@@ -49,7 +54,11 @@ public class ProblemSet5 {
       //Initializing Variables
       String modText = "";
 
-      if (out.length() == 4 && !in.equals(null) && !out.equals(null)){
+      if (in == null || out == null){
+        return in;
+      }
+
+      if (out.length() == 4 && in != null && out != null){
         modText += out.substring(0, 2);
         modText += in;
         modText += out.substring(out.length()-2, out.length());
@@ -213,20 +222,34 @@ public class ProblemSet5 {
      */
 
     public long sequence(String text) {
-      // //null check
-      // if (text.equals(null)){
-      //   return -1;
-      // }
-      //
-      //
-      //
-      // if (a.length() >= b.length()){
-      //   lengthTest = a.length();
-      // } else if (a.length() < b.length()){
-      //   lengthTest = b.length();
-      // }
-
-      return 0;
+     long count = 0L;
+     long lastLongest = 0L;
+     if (text == null) {
+         return -1;
+     }
+     for (int i = 1; i < text.length(); i++) {
+         if(i == text.length() - 1) {
+             if (text.charAt(i - 1) == text.charAt(i)) {
+                 count++;
+                 lastLongest = (lastLongest < count) ? count : lastLongest;
+                 count = 0L;
+             } else if (text.charAt(i - 1) != text.charAt(i)) {
+                 lastLongest = (lastLongest < count) ? count : lastLongest;
+                 count = 0L;
+             }
+         } else if (text.charAt(i - 1) == text.charAt(i)) {
+             count++;
+         } else if (text.charAt(i) == ' ' || text.charAt(i) == '.' || text.charAt(i - 1) != text.charAt(i)) {
+             lastLongest = (lastLongest < count) ? count : lastLongest;
+             count = 0L;
+         }
+     }
+     if (lastLongest == 0) {
+         lastLongest = 0;
+     } else {
+         lastLongest++;
+     }
+     return lastLongest;
     }
 
     /*
