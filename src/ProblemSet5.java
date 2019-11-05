@@ -22,12 +22,14 @@ public class ProblemSet5 {
       ProblemSet5 ps = new ProblemSet5();
 
       /*
-      * SO I CAN TEST
+      * TEST CASES
       */
 
+      // System.out.println(ps.surroundMe("I love you", "Hell")); //Excercise 1
+      // System.out.println(ps.endsMeet("I love you", 3)); //Excercise 2
       // System.out.println(ps.middleMan("afjgnafoh")); //Excercise 3
       // System.out.println(ps.isCentered("afjgnafoh", "gna")); //Excercise 4
-      // System.out.println(ps.countMe("I'm the happiest sham himself", 'm')); //Excercise 5 - Still not done
+      System.out.println(ps.countMe("I'm the happiest sham himself", 'm')); //Excercise 5 - Still not done
       // System.out.println(ps.triplets("astsssthreoooasd")); //Excercise 6
       // System.out.println(ps.addMe("12s34jgfhs938")); //Excercise 7
       // System.out.println(ps.sequence("hello")); //Excercise 8 - NOT DONE
@@ -44,8 +46,17 @@ public class ProblemSet5 {
      */
 
     public String surroundMe(String in, String out) {
+      //Initializing Variables
+      String modText = "";
 
-      return "";
+      if (out.length() == 4 && !in.equals(null) && !out.equals(null)){
+        modText += out.substring(0, 2);
+        modText += in;
+        modText += out.substring(out.length()-2, out.length());
+        return modText;
+      } else {
+        return in;
+      }
     }
 
     /*
@@ -56,8 +67,16 @@ public class ProblemSet5 {
      */
 
     public String endsMeet(String text, int n) {
+      //Initializing Variables
+      String modText = "";
 
-      return "";
+      if (text.length()<=10 && !text.equals(null) && n > 0 && n <= text.length()){
+        modText = text.substring(0, n);
+        modText += text.substring(text.length()-n, text.length());
+        return modText;
+      } else {
+        return text;
+      }
     }
 
     /*
