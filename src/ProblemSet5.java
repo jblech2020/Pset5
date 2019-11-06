@@ -26,21 +26,65 @@ public class ProblemSet5 {
       */
 
       //Excercise 1
-      System.out.println(ps.surroundMe("cde", "abfg")); //abcdefg (GOOD)
-      System.out.println(ps.surroundMe(null, "####")); //null (GOOD)
-      System.out.println(ps.surroundMe("abc", null)); //abc (GOOD)
-      System.out.println(ps.surroundMe("abc", "123")); //abc (GOOD)
+      // System.out.println(ps.surroundMe("cde", "abfg")); //abcdefg (GOOD)
+      // System.out.println(ps.surroundMe(null, "####")); //null (GOOD)
+      // System.out.println(ps.surroundMe("abc", null)); //abc (GOOD)
+      // System.out.println(ps.surroundMe("abc", "123")); //abc (GOOD)
 
-      // System.out.println(ps.endsMeet("I love you", 3)); //Excercise 2
-      // System.out.println(ps.middleMan("afjgnafoh")); //Excercise 3
-      // System.out.println(ps.isCentered("afjgnafoh", "gna")); //Excercise 4
-      // System.out.println(ps.countMe("I'm the happiest sham himselfm", 'm')); //Excercise 5
-      // System.out.println(ps.triplets("astsssthreoooasd")); //Excercise 6
-      // System.out.println(ps.addMe("12s34jgfhs938")); //Excercise 7
-      // System.out.println(ps.sequence("aaaonetohjanjkkjjjgojbnsooooo")); //Excercise 8
-      // System.out.println(ps.intertwine("How's", "Life")); //Excercise 9
-      // System.out.println(ps.isPalindrome("racecar")); //Excercise 10
+      // Excercise 2
+      // System.out.println(ps.endsMeet("abcdefg", 2)); //abfg (GOOD)
+      // System.out.println(ps.endsMeet(null, 2)); //null (GOOD)
+      // System.out.println(ps.endsMeet("", 2)); //"" (GOOD)
+      // System.out.println(ps.endsMeet("abc", -1)); //abc (GOOD)
 
+      //Excercise 3
+      // System.out.println(ps.middleMan("abcdefg")); //cde (GOOD)
+      // System.out.println(ps.middleMan(null)); //null (GOOD)
+      // System.out.println(ps.middleMan("12")); //12 (GOOD)
+      // System.out.println(ps.middleMan("a")); //a (GOOD)
+
+      // Excercise 4
+      // System.out.println(ps.isCentered("abcdefg", "cde")); //true (GOOD)
+      // System.out.println(ps.isCentered("abcdefg", "abc")); //false (GOOD)
+      // System.out.println(ps.isCentered(null, "abc")); //false (GOOD)
+      // System.out.println(ps.isCentered("abcd", "abc")); //false (GOOD)
+      // System.out.println(ps.isCentered("abc", null)); //false (GOOD)
+      // System.out.println(ps.isCentered("abcdefg", "cd")); //false (GOOD)
+
+      //Excercise 5
+      // System.out.println(ps.countMe("I am an example sentence", 'e')); //2 (GOOD)
+      // System.out.println(ps.countMe(null, 'a')); //-1 (GOOD)
+      // System.out.println(ps.countMe("abc$ def$", '$')); //-1 (GOOD)
+      // System.out.println(ps.countMe("abc$ def", 'f')); //1 (GOOD)
+
+      //Excercise 6
+      // System.out.println(ps.triplets("aaabbbccc")); //3 (GOOD)
+      // System.out.println(ps.triplets("aaaa")); //2 (GOOD)
+      // System.out.println(ps.triplets("abc")); //0 (GOOD)
+      // System.out.println(ps.triplets(null)); //-1 (GOOD)
+
+      //Excercise 7
+      // System.out.println(ps.addMe("123 abc 123")); //12 (GOOD)
+      // System.out.println(ps.addMe("abcdefghijk")); //0 (GOOD)
+      // System.out.println(ps.addMe(null)); //-1 (GOOD)
+
+      //Excercise 8
+      // System.out.println(ps.sequence("abbcccdddd")); //4 (GOOD)
+      // System.out.println(ps.sequence("aAabBbBb")); //1 (GOOD)
+      // System.out.println(ps.sequence("")); //0 (GOOD)
+      // System.out.println(ps.sequence(null)); //-1 (GOOD)
+
+      //Excercise 9
+      // System.out.println(ps.intertwine("aceg", "bdfh")); // "abcdefgh" (GOOD)
+      // System.out.println(ps.intertwine("abc", "12345")); // "a1b2c345" (GOOD)
+      // System.out.println(ps.intertwine(null, "abcd")); //null (GOOD)
+      // System.out.println(ps.intertwine("abcd", null)); //null (GOOD)
+      // System.out.println(ps.intertwine(null, null)); //null (GOOD)
+
+      //Excercise 10
+      // System.out.println(ps.isPalindrome("racecar")); //true (GOOD)
+      // System.out.println(ps.isPalindrome("Madam")); //false (GOOD)
+      // System.out.println(ps.isPalindrome(null)); //false (GOOD)
     }
 
     /*
@@ -79,6 +123,10 @@ public class ProblemSet5 {
       //Initializing Variables
       String modText = "";
 
+      if (text == null){
+        return text;
+      }
+
       if (text.length()<=10 && !text.equals(null) && n > 0 && n <= text.length()){
         modText = text.substring(0, n);
         modText += text.substring(text.length()-n, text.length());
@@ -96,7 +144,7 @@ public class ProblemSet5 {
 
     public String middleMan(String text) {
       //test conditions
-      if (text != null && text.length() % 2 == 1) {
+      if (text != null && text.length() % 2 == 1 && text.length()>=3) {
         //Variables with calculation
         double midpoint = text.length() / 2;
         String midText = text.substring((int)(midpoint - 0.5), (int)(midpoint + 2.5));
@@ -131,7 +179,7 @@ public class ProblemSet5 {
 
     public int countMe(String text, char suffix) {
       //null check
-      if (text.equals(null) || !Character.isAlphabetic(suffix)){
+      if (text == null || !Character.isAlphabetic(suffix)){
           return -1;
       }
 
@@ -169,7 +217,7 @@ public class ProblemSet5 {
 
     public int triplets(String text) {
       //null check
-      if (text.equals(null)){
+      if (text == null){
           return -1;
       }
 
@@ -198,7 +246,7 @@ public class ProblemSet5 {
 
     public long addMe(String text) {
       //null check
-      if (text.equals(null)){
+      if (text == null){
         return -1;
       }
       //Initializing variables
@@ -229,25 +277,27 @@ public class ProblemSet5 {
      }
      for (int i = 1; i < text.length(); i++) {
          if(i == text.length() - 1) {
-             if (text.charAt(i - 1) == text.charAt(i)) {
-                 count++;
-                 lastLongest = (lastLongest < count) ? count : lastLongest;
-                 count = 0L;
-             } else if (text.charAt(i - 1) != text.charAt(i)) {
-                 lastLongest = (lastLongest < count) ? count : lastLongest;
-                 count = 0L;
-             }
-         } else if (text.charAt(i - 1) == text.charAt(i)) {
+           if (text.charAt(i - 1) == text.charAt(i)) {
              count++;
-         } else if (text.charAt(i) == ' ' || text.charAt(i) == '.' || text.charAt(i - 1) != text.charAt(i)) {
              lastLongest = (lastLongest < count) ? count : lastLongest;
              count = 0L;
+           } else if (text.charAt(i - 1) != text.charAt(i)) {
+             lastLongest = (lastLongest < count) ? count : lastLongest;
+             count = 0L;
+           }
+         } else if (text.charAt(i - 1) == text.charAt(i)) {
+           count++;
+         } else if (text.charAt(i) == ' ' || text.charAt(i) == '.' || text.charAt(i - 1) != text.charAt(i)) {
+           lastLongest = (lastLongest < count) ? count : lastLongest;
+           count = 0L;
          }
      }
-     if (lastLongest == 0) {
-         lastLongest = 0;
-     } else {
-         lastLongest++;
+     if (lastLongest == 0 && text == ""){
+       lastLongest = 0;
+     }else if (lastLongest == 0 && text != ""){
+       lastLongest = 1;
+     }else{
+       lastLongest++;
      }
      return lastLongest;
     }
@@ -261,7 +311,7 @@ public class ProblemSet5 {
 
     public String intertwine(String a, String b) {
       //null check
-      if (a.equals(null)||b.equals(null)){
+      if (a == null||b == null){
         return null;
       }
       //Initializing variables
@@ -277,7 +327,13 @@ public class ProblemSet5 {
 
       //Adding on characters of each string one by one
       for (int i = 0; i < lengthTest; i++){
-        inter += a.substring(i, i+1) + b.substring(i, i+1);
+        if (a.length()>i && b.length()>i){
+          inter += a.substring(i, i+1) + b.substring(i, i+1);
+        } else if (b.length()>i && a.length()<=i){
+          inter += b.substring(i, i+1);
+        } else if (b.length()<=i && a.length()>i){
+          inter += a.substring(i, i+1);
+        }
       }
 
       return inter;
@@ -292,7 +348,6 @@ public class ProblemSet5 {
     public boolean isPalindrome(String text) {
       //Initializing Variables
       String originPal = text;
-      originPal = originPal.toUpperCase();
       String palTestString = "";
 
       if (originPal == null){
